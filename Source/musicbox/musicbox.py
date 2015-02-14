@@ -2,7 +2,15 @@ import RPi.GPIO as GPIO;
 import pygame.mixer;
 
 pygame.mixer.init();
-#PIN 3(BOARD) = PIN 2 (BCM)
+#PIN 3(BOARD) = PIN 2(BCM)
+#PIN 5(BOARD) = PIN 3(BCM)
+
+#
+# Wiring (PIN BOARD):
+# Pin 3 -> Button -> GND
+# Pin 5 -> Button -> GND
+# GND ->  PIN 6 
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
@@ -21,7 +29,7 @@ sound_pins = {
 #core playing
 def play(pin):
     print("playing %s" % pin);
-    sounds_pins[pin].play();
+    sound_pins[pin].play();
 
 #pin and event setup
 for pin in sound_pins:
